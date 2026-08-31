@@ -1,3 +1,11 @@
 name = "sveltia-cms-auth"
 main = "src/index.js"
 compatibility_date = "2023-03-24"
+
+# Non-secret configuration lives here rather than in the Cloudflare dashboard.
+# Workers Builds runs `wrangler deploy`, which treats this file as the source of
+# truth and wipes any plain-text variable set only in the dashboard. Secrets
+# (GITHUB_CLIENT_SECRET) are not managed here and survive deploys.
+[vars]
+GITHUB_CLIENT_ID = "Ov23li1TvFCCnO1qJAhp"
+ALLOWED_DOMAINS = "ibaimecai.pages.dev"
